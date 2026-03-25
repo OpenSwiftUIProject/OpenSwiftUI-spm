@@ -36,8 +36,8 @@ Then add `"OpenSwiftUI"` to the target's dependencies:
 ## Platform Support
 
 Currently supports:
-- iPhone Simulator — iOS 18.5+
-- macOS 15.5+
+- iPhone Simulator — iOS [18.5, 26.0)
+- macOS [15.5, 26.0)
 
 ## Included Frameworks
 
