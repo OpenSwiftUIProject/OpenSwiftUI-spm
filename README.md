@@ -51,6 +51,23 @@ Currently supports:
 | OpenQuartzCoreShims | QuartzCore shim layer |
 | OpenRenderBoxShims | RenderBox shim layer |
 
+## Security
+
+XCFrameworks are code-signed with a self-signed certificate named "OpenSwiftUI".
+
+Certificate fingerprint (SHA-256):
+```
+F4:80:B9:8F:2E:D6:D4:A3:6B:32:9D:D9:3C:B3:4F:44:A9:69:CE:E7:12:9F:98:A3:23:75:52:C6:0B:41:EA:79
+```
+
+You can verify the signature of a downloaded XCFramework using:
+
+```bash
+codesign -dv --verbose=4 OpenSwiftUI.xcframework
+```
+
+The `Package.swift` URLs point directly to [official OpenSwiftUI releases](https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases), and SPM verifies the checksum on download.
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
