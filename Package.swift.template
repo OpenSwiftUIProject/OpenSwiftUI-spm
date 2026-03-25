@@ -1,0 +1,101 @@
+// swift-tools-version: 6.0
+
+import PackageDescription
+
+// MARK: - Binary Targets
+
+/// XCFrameworks compiled from OpenSwiftUI {{VERSION}} with Xcode 16.4.
+let openSwiftUI = Target.binaryTarget(
+    name: "OpenSwiftUI",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenSwiftUI.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenSwiftUI}}"
+)
+
+let openSwiftUICore = Target.binaryTarget(
+    name: "OpenSwiftUICore",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenSwiftUICore.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenSwiftUICore}}"
+)
+
+let openAttributeGraphShims = Target.binaryTarget(
+    name: "OpenAttributeGraphShims",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenAttributeGraphShims.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenAttributeGraphShims}}"
+)
+
+let openCoreGraphicsShims = Target.binaryTarget(
+    name: "OpenCoreGraphicsShims",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenCoreGraphicsShims.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenCoreGraphicsShims}}"
+)
+
+let openObservation = Target.binaryTarget(
+    name: "OpenObservation",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenObservation.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenObservation}}"
+)
+
+let openQuartzCoreShims = Target.binaryTarget(
+    name: "OpenQuartzCoreShims",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenQuartzCoreShims.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenQuartzCoreShims}}"
+)
+
+let openRenderBoxShims = Target.binaryTarget(
+    name: "OpenRenderBoxShims",
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenRenderBoxShims.xcframework.zip",
+    checksum: "{{CHECKSUM_OpenRenderBoxShims}}"
+)
+
+// MARK: - Package
+
+let package = Package(
+    name: "OpenSwiftUI",
+    platforms: [.iOS("18.0"), .macOS("15.0")],
+    products: [
+        .library(
+            name: "OpenSwiftUI",
+            targets: [
+                "OpenSwiftUI",
+                "OpenSwiftUICore",
+                "OpenAttributeGraphShims",
+                "OpenCoreGraphicsShims",
+                "OpenObservation",
+                "OpenQuartzCoreShims",
+                "OpenRenderBoxShims",
+                "_OpenSwiftUIStub",
+            ]
+        ),
+    ],
+    targets: [
+        openSwiftUI,
+        openSwiftUICore,
+        openAttributeGraphShims,
+        openCoreGraphicsShims,
+        openObservation,
+        openQuartzCoreShims,
+        openRenderBoxShims,
+
+        // Without at least one regular (non-binary) target, this package doesn't show up
+        // in Xcode under "Frameworks, Libraries, and Embedded Content". That prevents
+        // the framework from being embedded in the app product, causing the app to crash
+        // when ran on a physical device. As a workaround, we can include a stub target
+        // with at least one source file.
+        // https://github.com/apple/swift-package-manager/issues/6069
+        .target(name: "_OpenSwiftUIStub"),
+
+        .testTarget(
+            name: "OpenSwiftUITests",
+            dependencies: [
+                "OpenSwiftUI",
+                "OpenSwiftUICore",
+                "OpenAttributeGraphShims",
+                "OpenCoreGraphicsShims",
+                "OpenObservation",
+                "OpenQuartzCoreShims",
+                "OpenRenderBoxShims",
+            ],
+            path: "Tests"
+        ),
+    ]
+)
