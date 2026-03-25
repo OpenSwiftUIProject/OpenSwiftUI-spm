@@ -1,0 +1,45 @@
+name: Example Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  example_build:
+    name: Build Example (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: iOS
+            destination: "platform=iOS Simulator,OS=18.5,name=iPhone 16 Pro"
+          - platform: macOS
+            destination: "platform=macOS"
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.4"
+      - name: Install mise
+        uses: jdx/mise-action@v2
+      - name: Install Tuist
+        run: tuist version
+      - name: Install dependencies
+        run: |
+          cd Example
+          tuist install
+      - name: Generate project
+        run: |
+          cd Example
+          tuist generate
+      - name: Build
+        run: |
+          cd Example
+          set -o pipefail
+          tuist xcodebuild build \
+            -destination "${{ matrix.destination }}" \
+            2>&1 | xcbeautify --renderer github-actions --preserve-unbeautified
