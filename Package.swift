@@ -63,7 +63,6 @@ let package = Package(
                 "OpenObservation",
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
-                "_OpenSwiftUIStub",
             ]
         ),
     ],
@@ -75,14 +74,6 @@ let package = Package(
         openObservation,
         openQuartzCoreShims,
         openRenderBoxShims,
-
-        // Without at least one regular (non-binary) target, this package doesn't show up
-        // in Xcode under "Frameworks, Libraries, and Embedded Content". That prevents
-        // the framework from being embedded in the app product, causing the app to crash
-        // when ran on a physical device. As a workaround, we can include a stub target
-        // with at least one source file.
-        // https://github.com/apple/swift-package-manager/issues/6069
-        .target(name: "_OpenSwiftUIStub"),
 
         .testTarget(
             name: "OpenSwiftUITests",

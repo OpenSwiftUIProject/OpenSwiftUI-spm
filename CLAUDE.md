@@ -6,9 +6,8 @@ Lightweight SPM package distributing precompiled XCFrameworks from [OpenSwiftUI]
 
 - `Package.swift` — SPM manifest with 7 binary targets pointing to xcframework zips from OpenSwiftUI releases
 - `Package.swift.template` — Template with `{{VERSION}}` and `{{CHECKSUM_*}}` placeholders, used by OpenSwiftUI's release workflow to auto-generate Package.swift
-- `Sources/_OpenSwiftUIStub/` — Stub target workaround for [SPM #6069](https://github.com/apple/swift-package-manager/issues/6069) (needed for Xcode to show binary-only packages in "Frameworks, Libraries, and Embedded Content")
 - `Tests/` — Smoke test using Swift Testing (`@Test`)
-- `Example/` — Tuist-based iOS example app. Run `tuist install && tuist generate` inside `Example/`
+- `Example/` — Tuist-based example app (iOS + macOS). Run `tuist install && tuist generate` inside `Example/`
 
 ## Release Workflow
 
