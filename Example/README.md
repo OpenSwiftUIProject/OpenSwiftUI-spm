@@ -33,10 +33,10 @@ tuist generate
 ## Notes
 
 - The generated `.xcodeproj` and `.xcworkspace` are gitignored — always regenerate via `tuist generate`.
-- The example depends on the root `OpenSwiftUI-binary` package via a local path reference. To use the remote package instead, update `Tuist/Package.swift`:
+- The example depends on the root `OpenSwiftUI-spm` package via a local path reference. To use the remote package instead, update `Tuist/Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-binary", from: "0.17.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.17.0"),
 ]
 ```

@@ -7,7 +7,7 @@ let project = Project(
             name: "Example",
             destinations: .iOS,
             product: .app,
-            bundleId: "org.OpenSwiftUIProject.OpenSwiftUI-binary.Example",
+            bundleId: "org.OpenSwiftUIProject.OpenSwiftUI-spm.Example",
             deploymentTargets: .iOS("18.0"),
             infoPlist: .extendingDefault(with: [
                 "UILaunchScreen": [

@@ -9,7 +9,7 @@ This avoids the need to clone and compile the full OpenSwiftUI source repository
 ### Via Xcode
 
 1. In Xcode, select **File > Add Package Dependencies...**
-2. Enter the repository URL: `https://github.com/OpenSwiftUIProject/OpenSwiftUI-binary`
+2. Enter the repository URL: `https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm`
 3. Select the version you want to use
 
 ### Via Package.swift
@@ -18,7 +18,7 @@ Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-binary", from: "0.17.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.17.0"),
 ]
 ```
 
@@ -28,7 +28,7 @@ Then add `"OpenSwiftUI"` to the target's dependencies:
 .target(
     name: "YourTarget",
     dependencies: [
-        .product(name: "OpenSwiftUI", package: "OpenSwiftUI-binary"),
+        .product(name: "OpenSwiftUI", package: "OpenSwiftUI-spm"),
     ]
 ),
 ```

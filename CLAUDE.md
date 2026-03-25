@@ -1,4 +1,4 @@
-# OpenSwiftUI-binary
+# OpenSwiftUI-spm
 
 Lightweight SPM package distributing precompiled XCFrameworks from [OpenSwiftUI](https://github.com/OpenSwiftUIProject/OpenSwiftUI) releases.
 
