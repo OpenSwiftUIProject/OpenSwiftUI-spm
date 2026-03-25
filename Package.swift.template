@@ -51,7 +51,7 @@ let openRenderBoxShims = Target.binaryTarget(
 
 let package = Package(
     name: "OpenSwiftUI",
-    platforms: [.iOS("18.0"), .macOS("15.0")],
+    platforms: [.iOS("18.5"), .macOS("15.5")],
     products: [
         .library(
             name: "OpenSwiftUI",
