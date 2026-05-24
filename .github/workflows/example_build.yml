@@ -26,20 +26,14 @@ jobs:
           xcode-version: "16.4"
       - name: Install mise
         uses: jdx/mise-action@v2
-      - name: Install Tuist
-        run: tuist version
-      - name: Install dependencies
-        run: |
-          cd Example
-          tuist install
-      - name: Generate project
-        run: |
-          cd Example
-          tuist generate
+        with:
+          install: false
+      - name: Setup Example
+        run: ./Example/setup.sh
       - name: Build
         run: |
           cd Example
           set -o pipefail
-          tuist xcodebuild build \
+          mise exec -- tuist xcodebuild build \
             -destination "${{ matrix.destination }}" \
             2>&1 | xcbeautify --renderer github-actions --preserve-unbeautified
