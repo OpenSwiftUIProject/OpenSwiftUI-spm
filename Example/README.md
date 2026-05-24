@@ -9,26 +9,24 @@ A minimal iOS app demonstrating OpenSwiftUI binary framework integration via Tui
 
 ## Setup
 
-1. Install Tuist if you haven't already:
+Run the setup script from this directory:
 
 ```bash
-curl -Ls https://install.tuist.io | bash
+./setup.sh
 ```
 
-2. Fetch external dependencies:
+The script trusts and installs the root `mise` toolchain, fetches Tuist dependencies, and generates the Xcode workspace. To run the steps manually:
 
 ```bash
+cd ..
+mise trust
+mise install
 cd Example
 tuist install
-```
-
-3. Generate the Xcode project:
-
-```bash
 tuist generate
 ```
 
-4. Open the generated `Example.xcworkspace` and run the app on an iOS 18.5+ simulator.
+Open the generated `Example.xcworkspace` and run the app on an iOS 18.5+ simulator.
 
 ## Notes
 
