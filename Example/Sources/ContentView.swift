@@ -22,30 +22,30 @@ struct ContentView: View {
                     .frame(width: 60, height: 60)
             }
 
-            // MARK: - Shape
-
-            HStack(spacing: 12) {
-                Circle()
-                    .fill(.orange)
-                    .frame(width: 60, height: 60)
-                Rectangle()
-                    .fill(.purple)
-                    .frame(width: 60, height: 60)
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.cyan)
-                    .frame(width: 60, height: 60)
-                Capsule()
-                    .fill(.mint)
-                    .frame(width: 80, height: 40)
-            }
-
-            // MARK: - Image
-
-            Image(systemName: "swift")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .foregroundStyle(.orange)
+//            // MARK: - Shape
+//
+//            HStack(spacing: 12) {
+//                Circle()
+//                    .fill(.orange)
+//                    .frame(width: 60, height: 60)
+//                Rectangle()
+//                    .fill(.purple)
+//                    .frame(width: 60, height: 60)
+//                RoundedRectangle(cornerRadius: 12)
+//                    .fill(.cyan)
+//                    .frame(width: 60, height: 60)
+//                Capsule()
+//                    .fill(.mint)
+//                    .frame(width: 80, height: 40)
+//            }
+//
+//            // MARK: - Image
+//
+//            Image(systemName: "swift")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 80, height: 80)
+//                .foregroundStyle(.orange)
         }
         .padding()
     }
