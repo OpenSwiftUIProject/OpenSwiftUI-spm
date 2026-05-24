@@ -26,7 +26,7 @@ tuist install
 tuist generate
 ```
 
-Open the generated `Example.xcworkspace` and run the app on an iOS 18.5+ simulator.
+Open the generated `Example.xcworkspace` and run the app on an iOS 18.0+ simulator.
 
 ## Notes
 
@@ -35,6 +35,6 @@ Open the generated `Example.xcworkspace` and run the app on an iOS 18.5+ simulat
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.17.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.0"),
 ]
 ```

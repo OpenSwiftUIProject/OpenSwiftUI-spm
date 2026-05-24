@@ -18,7 +18,7 @@ Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.17.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.0"),
 ]
 ```
 
@@ -36,8 +36,8 @@ Then add `"OpenSwiftUI"` to the target's dependencies:
 ## Platform Support
 
 Currently supports:
-- iPhone Simulator — iOS [18.5, 26.0)
-- macOS [15.5, 26.0)
+- iPhone Simulator — iOS 18.0+
+- macOS 15.0+
 
 ## Included Frameworks
 

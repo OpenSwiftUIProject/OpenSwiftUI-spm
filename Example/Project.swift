@@ -8,7 +8,7 @@ let project = Project(
             destinations: [.iPhone, .iPad, .mac],
             product: .app,
             bundleId: "org.OpenSwiftUIProject.OpenSwiftUI-spm.Example",
-            deploymentTargets: .multiplatform(iOS: "18.5", macOS: "15.5"),
+            deploymentTargets: .multiplatform(iOS: "18.0", macOS: "15.0"),
             infoPlist: .extendingDefault(with: [
                 "UILaunchScreen": [
                     "UIColorName": "",
