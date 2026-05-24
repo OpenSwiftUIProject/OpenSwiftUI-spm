@@ -34,6 +34,6 @@ Then open the generated `Example.xcworkspace`.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.1"),
 ]
 ```

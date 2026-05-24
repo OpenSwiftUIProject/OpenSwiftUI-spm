@@ -18,7 +18,7 @@ Add the dependency to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.0"),
+    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.1"),
 ]
 ```
 
@@ -32,6 +32,12 @@ Then add `"OpenSwiftUI"` to the target's dependencies:
     ]
 ),
 ```
+
+## SwiftUI Library Integration
+
+SwiftUI library authors can support both Apple's SwiftUI and OpenSwiftUI with an
+opt-in SwiftPM trait. See [SwiftUI Library Integration](Docs/SwiftUILibraryIntegration.md)
+for the full `Package.swift` configuration and source-code pattern.
 
 ## Platform Support
 
