@@ -4,7 +4,7 @@ A minimal iOS app demonstrating OpenSwiftUI binary framework integration via Tui
 
 ## Prerequisites
 
-- [Tuist](https://docs.tuist.io/guides/quick-start/install-tuist) installed
+- [mise](https://mise.jdx.dev/) installed
 - Xcode 16.4+
 
 ## Setup
@@ -15,18 +15,17 @@ Run the setup script from this directory:
 ./setup.sh
 ```
 
-The script trusts and installs the root `mise` toolchain, fetches Tuist dependencies, and generates the Xcode workspace. To run the steps manually:
+The script trusts and installs the Example `mise` toolchain, fetches Tuist dependencies, and generates the Xcode workspace. To run the steps manually:
 
 ```bash
-cd ..
-mise trust
+mise trust mise.toml
 mise install
-cd Example
-tuist install
-tuist generate
+mise exec -- tuist install
+mise exec -- tuist generate --no-open
+
 ```
 
-Open the generated `Example.xcworkspace` and run the app on an iOS 18.0+ simulator.
+Then open the generated `Example.xcworkspace`.
 
 ## Notes
 

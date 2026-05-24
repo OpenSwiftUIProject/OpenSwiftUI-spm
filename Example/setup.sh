@@ -3,12 +3,9 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd -P)"
-
-cd "$REPO_ROOT"
-mise trust
-mise install
 
 cd "$SCRIPT_DIR"
-tuist install
-tuist generate
+mise trust "$SCRIPT_DIR/mise.toml"
+mise install
+mise exec -- tuist install
+mise exec -- tuist generate --no-open

@@ -6,9 +6,8 @@ Lightweight SPM package distributing precompiled XCFrameworks from [OpenSwiftUI]
 
 - `Package.swift` — SPM manifest with 7 binary targets pointing to xcframework zips from OpenSwiftUI releases
 - `Package.swift.template` — Template with `{{VERSION}}` and `{{CHECKSUM_*}}` placeholders, used by OpenSwiftUI's release workflow to auto-generate Package.swift
-- `mise.toml` — Tool versions for local development
 - `Tests/` — Smoke test using Swift Testing (`@Test`)
-- `Example/` — Tuist-based example app (iOS + macOS). Run `./setup.sh` inside `Example/`
+- `Example/` — Tuist-based example app (iOS + macOS) with its own `mise.toml`. Run `./setup.sh` inside `Example/`
 
 ## Platform Support
 
@@ -30,10 +29,6 @@ XCFrameworks are signed with a self-signed "OpenSwiftUI" certificate. The `.p12`
 ## Key Commands
 
 ```bash
-# Install local toolchain
-mise trust
-mise install
-
 # Verify Package.swift parses
 swift package dump-package
 
