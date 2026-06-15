@@ -4,7 +4,7 @@ import PackageDescription
 
 // MARK: - Binary Targets
 
-/// XCFrameworks compiled from OpenSwiftUI {{VERSION}} with Xcode 16.4.
+/// XCFrameworks compiled from OpenSwiftUI {{VERSION}}.
 let openSwiftUI = Target.binaryTarget(
     name: "OpenSwiftUI",
     url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenSwiftUI.xcframework.zip",

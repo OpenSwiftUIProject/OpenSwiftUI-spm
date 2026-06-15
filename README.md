@@ -42,8 +42,18 @@ for the full `Package.swift` configuration and source-code pattern.
 ## Platform Support
 
 Currently supports:
-- iPhone Simulator — iOS 18.0+
+- iOS 18.0+ (device and simulator)
 - macOS 15.0+
+
+## Binary Configuration History
+
+OpenSwiftUI-spm publishes one binary package configuration per release series.
+
+| Versions | Renderer backend | AttributeGraph backend | Platform support |
+|----------|------------------|------------------------|------------------|
+| 0.19.0+ | OSUI Renderer | IAG (Compute) | iOS 18+ (device and simulator) and macOS 15+ |
+| 0.18.0-0.18.3 | OSUI Renderer | AG | iOS Simulator 18+ and macOS 15+ |
+| 0.17.0-0.17.3 | SUI Renderer | AG | iOS Simulator [18.5, 26.0) and macOS [15.5, 26.0) |
 
 ## Included Frameworks
 
@@ -56,6 +66,20 @@ Currently supports:
 | OpenObservation | Observation framework support |
 | OpenQuartzCoreShims | QuartzCore shim layer |
 | OpenRenderBoxShims | RenderBox shim layer |
+
+## Build Configuration Metadata
+
+Starting with 0.19.0, release builds record their backend configuration in each
+`OpenSwiftUI.framework` slice's `Info.plist`. The metadata includes the
+`OpenSwiftUIAGBackend`, `OpenSwiftUIRendererBackend`,
+`OpenSwiftUILibraryType`, and `OpenSwiftUIUsesLocalDependencies` keys.
+
+For example, inspect a downloaded release with:
+
+```bash
+/usr/libexec/PlistBuddy -c "Print :OpenSwiftUIAGBackend" OpenSwiftUI.xcframework/ios-arm64_x86_64-simulator/OpenSwiftUI.framework/Info.plist
+/usr/libexec/PlistBuddy -c "Print :OpenSwiftUIAGBackend" OpenSwiftUI.xcframework/macos-arm64_x86_64/OpenSwiftUI.framework/Versions/Current/Resources/Info.plist
+```
 
 ## Security
 
