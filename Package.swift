@@ -4,47 +4,47 @@ import PackageDescription
 
 // MARK: - Binary Targets
 
-/// XCFrameworks compiled from OpenSwiftUI 0.19.1.
+/// XCFrameworks compiled from OpenSwiftUI 0.19.2.
 let openSwiftUI = Target.binaryTarget(
     name: "OpenSwiftUI",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenSwiftUI.xcframework.zip",
-    checksum: "8f9b161695ff3a048a122d943c9299472633c30ac0362a3ded7443d31a08a1a2"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenSwiftUI.xcframework.zip",
+    checksum: "0518dda041edb65daeadf778db0c42f0f2953823382fd01cc84f9fa9d7071a4c"
 )
 
 let openSwiftUICore = Target.binaryTarget(
     name: "OpenSwiftUICore",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenSwiftUICore.xcframework.zip",
-    checksum: "509b54381a47b7b16af25f2d6af17e2386838843cc74b116fffb776fd2cfd2bb"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenSwiftUICore.xcframework.zip",
+    checksum: "49c3f882edd00adc6bd92cb33cfd141161860e13637ea0d3d20734435ac437ff"
 )
 
 let openAttributeGraphShims = Target.binaryTarget(
     name: "OpenAttributeGraphShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenAttributeGraphShims.xcframework.zip",
-    checksum: "378b87bd7fe22b48ce82f627edf9595196618afecb087ffbdec23dc5d9cd3088"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenAttributeGraphShims.xcframework.zip",
+    checksum: "140f58c6dba5f1ae0b3c182c82b1f7ac3ce3b1b9a509fb26d0140422a465fda2"
 )
 
 let openCoreGraphicsShims = Target.binaryTarget(
     name: "OpenCoreGraphicsShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenCoreGraphicsShims.xcframework.zip",
-    checksum: "3634fa4543ce9c00539b8cd2aeca16426ac65206240ef8d352b04468a15f463b"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenCoreGraphicsShims.xcframework.zip",
+    checksum: "f96dcf0824f9193bc59beec855a82d2dfbb34530ee50317168cade5a0faed1d1"
 )
 
 let openObservation = Target.binaryTarget(
     name: "OpenObservation",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenObservation.xcframework.zip",
-    checksum: "0e05982fec3d2a08dbb3e84ee0defcd41d0834980f5d73eb3495834d42b07d4a"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenObservation.xcframework.zip",
+    checksum: "99a7bfdeea1bd9ec29b03d0832a5ac967822e2292d3116b1a460e06a1b95945e"
 )
 
 let openQuartzCoreShims = Target.binaryTarget(
     name: "OpenQuartzCoreShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenQuartzCoreShims.xcframework.zip",
-    checksum: "4ace3030b6b8565fd7453a716219263f676762b04e73d21c7a4ea4cde2b58874"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenQuartzCoreShims.xcframework.zip",
+    checksum: "151b60184eec71d2055508e1e10891d17ab19166f1df969be932d84a192c95f6"
 )
 
 let openRenderBoxShims = Target.binaryTarget(
     name: "OpenRenderBoxShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.1/OpenRenderBoxShims.xcframework.zip",
-    checksum: "c85b0c730a0fe2fad2c66df6cb7e6aa9472ca9e7337d4f795936cc674865dabb"
+    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/0.19.2/OpenRenderBoxShims.xcframework.zip",
+    checksum: "a6616b1f64a3d9566bf78d7bec2ade4a06a7182e4731182d94212286a2ad1261"
 )
 
 // MARK: - Package
