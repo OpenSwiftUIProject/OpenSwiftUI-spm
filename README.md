@@ -69,7 +69,7 @@ OpenSwiftUI-spm publishes one binary package configuration per release series.
 
 ## Build Configuration Metadata
 
-Starting with 0.19.0, release builds record their backend configuration in each
+Starting with 0.19.2, release builds record their backend configuration in each
 `OpenSwiftUI.framework` slice's `Info.plist`. The metadata includes the
 `OpenSwiftUIAGBackend`, `OpenSwiftUIRendererBackend`,
 `OpenSwiftUILibraryType`, and `OpenSwiftUIUsesLocalDependencies` keys.
