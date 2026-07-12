@@ -51,7 +51,12 @@ let openRenderBoxShims = Target.binaryTarget(
 
 let package = Package(
     name: "OpenSwiftUI",
-    platforms: [.iOS(.v18), .macOS(.v15)],
+    /*
+     * If we add this correct information, many SUI package can't add this to their Package.swift to adapt for OSUI
+     * as we can't conditional change platforms for trait. So keep leave this for now.
+     * And the final MachO target must match the OS version to successfully link the framework.
+     */
+    // platforms: [.iOS(.v18), .macOS(.v15)],
     products: [
         .library(
             name: "OpenSwiftUI",
