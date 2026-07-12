@@ -39,6 +39,13 @@ SwiftUI library authors can support both Apple's SwiftUI and OpenSwiftUI with an
 opt-in SwiftPM trait. See [SwiftUI Library Integration](Docs/SwiftUILibraryIntegration.md)
 for the full `Package.swift` configuration and source-code pattern.
 
+Examples of SwiftUI packages using this integration pattern:
+
+- [ScreenShieldKit](https://github.com/Kyle-Ye/ScreenShieldKit) — APIs for hiding
+  platform views, layers and (Open)SwiftUI views from screen capture.
+- [SkyLightWindow](https://github.com/Lakr233/SkyLightWindow) — macOS
+  utilities for displaying (Open)SwiftUI views above other windows.
+
 ## Platform Support
 
 Currently supports:
