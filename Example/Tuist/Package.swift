@@ -2,6 +2,24 @@
 
 import PackageDescription
 
+#if TUIST
+import ProjectDescription
+
+let openSwiftUISigningFingerprint = "F480B98F2ED6D4A36B329DD93CB34F44A969CEE7129F98A3237552C60B41EA79"
+
+let packageSettings = PackageSettings(
+    expectedSignatures: [
+        "OpenSwiftUI": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenSwiftUICore": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenAttributeGraphShims": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenCoreGraphicsShims": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenObservation": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenQuartzCoreShims": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+        "OpenRenderBoxShims": .selfSigned(fingerprint: openSwiftUISigningFingerprint),
+    ]
+)
+#endif
+
 let package = Package(
     name: "ExampleDependencies",
     dependencies: [
