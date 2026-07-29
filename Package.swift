@@ -63,7 +63,6 @@ let package = Package(
             targets: [
                 "OpenSwiftUI",
                 "OpenSwiftUICore",
-                "OpenAttributeGraphShims",
                 "OpenCoreGraphicsShims",
                 "OpenObservation",
                 "OpenQuartzCoreShims",
