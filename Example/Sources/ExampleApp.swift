@@ -1,3 +1,7 @@
+//
+//  ExampleApp.swift
+//  Example
+
 import OpenSwiftUI
 
 @main
