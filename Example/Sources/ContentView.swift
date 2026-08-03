@@ -6,14 +6,16 @@ import OpenSwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 24) {
             // MARK: - Text
 
-            Text(verbatim: "OpenSwiftUI Example")
-                .font(.title)
-            Text(verbatim: "Hello, OpenSwiftUI!")
-                .font(.body)
-                .foregroundStyle(.secondary)
+            VStack(spacing: 6) {
+                Text(verbatim: "OpenSwiftUI Example")
+                    .font(.title)
+                Text(verbatim: "Color & Shape & Image")
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+            }
 
             // MARK: - Color
 
@@ -38,9 +40,6 @@ struct ContentView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(.cyan)
                     .frame(width: 60, height: 60)
-                Capsule()
-                    .fill(.mint)
-                    .frame(width: 80, height: 40)
             }
 
             // MARK: - Image
