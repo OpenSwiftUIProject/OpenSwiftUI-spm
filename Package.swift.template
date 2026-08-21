@@ -1,49 +1,74 @@
 // swift-tools-version: 6.0
 
+import Foundation
 import PackageDescription
 
 // MARK: - Binary Targets
 
 /// XCFrameworks compiled from OpenSwiftUI {{VERSION}}.
-let openSwiftUI = Target.binaryTarget(
+let openSwiftUIVersion = "{{VERSION}}"
+let openSwiftUIReleaseBaseURL = "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/\(openSwiftUIVersion)"
+let packageDirectory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
+let localXCFrameworksDirectory = Context.environment["OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH"].flatMap { path in
+    path.isEmpty ? nil : URL(fileURLWithPath: path, relativeTo: packageDirectory).standardizedFileURL
+}
+
+func relativePath(from directory: URL, to file: URL) -> String {
+    let directoryComponents = directory.standardizedFileURL.pathComponents
+    let fileComponents = file.standardizedFileURL.pathComponents
+    var commonComponentCount = 0
+    while commonComponentCount < directoryComponents.count &&
+          commonComponentCount < fileComponents.count &&
+          directoryComponents[commonComponentCount] == fileComponents[commonComponentCount] {
+        commonComponentCount += 1
+    }
+    let parentComponents = Array(repeating: "..", count: directoryComponents.count - commonComponentCount)
+    return (parentComponents + fileComponents.dropFirst(commonComponentCount)).joined(separator: "/")
+}
+
+func openSwiftUIBinaryTarget(name: String, checksum: String) -> Target {
+    if let localXCFrameworksDirectory {
+        let localXCFramework = localXCFrameworksDirectory.appendingPathComponent("\(name).xcframework")
+        if FileManager.default.fileExists(atPath: localXCFramework.path) {
+            return .binaryTarget(
+                name: name,
+                path: relativePath(from: packageDirectory, to: localXCFramework)
+            )
+        }
+    }
+    return .binaryTarget(
+        name: name,
+        url: "\(openSwiftUIReleaseBaseURL)/\(name).xcframework.zip",
+        checksum: checksum
+    )
+}
+
+let openSwiftUI = openSwiftUIBinaryTarget(
     name: "OpenSwiftUI",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenSwiftUI.xcframework.zip",
     checksum: "{{CHECKSUM_OpenSwiftUI}}"
 )
-
-let openSwiftUICore = Target.binaryTarget(
+let openSwiftUICore = openSwiftUIBinaryTarget(
     name: "OpenSwiftUICore",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenSwiftUICore.xcframework.zip",
     checksum: "{{CHECKSUM_OpenSwiftUICore}}"
 )
-
-let openAttributeGraphShims = Target.binaryTarget(
+let openAttributeGraphShims = openSwiftUIBinaryTarget(
     name: "OpenAttributeGraphShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenAttributeGraphShims.xcframework.zip",
     checksum: "{{CHECKSUM_OpenAttributeGraphShims}}"
 )
-
-let openCoreGraphicsShims = Target.binaryTarget(
+let openCoreGraphicsShims = openSwiftUIBinaryTarget(
     name: "OpenCoreGraphicsShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenCoreGraphicsShims.xcframework.zip",
     checksum: "{{CHECKSUM_OpenCoreGraphicsShims}}"
 )
-
-let openObservation = Target.binaryTarget(
+let openObservation = openSwiftUIBinaryTarget(
     name: "OpenObservation",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenObservation.xcframework.zip",
     checksum: "{{CHECKSUM_OpenObservation}}"
 )
-
-let openQuartzCoreShims = Target.binaryTarget(
+let openQuartzCoreShims = openSwiftUIBinaryTarget(
     name: "OpenQuartzCoreShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenQuartzCoreShims.xcframework.zip",
     checksum: "{{CHECKSUM_OpenQuartzCoreShims}}"
 )
-
-let openRenderBoxShims = Target.binaryTarget(
+let openRenderBoxShims = openSwiftUIBinaryTarget(
     name: "OpenRenderBoxShims",
-    url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/{{VERSION}}/OpenRenderBoxShims.xcframework.zip",
     checksum: "{{CHECKSUM_OpenRenderBoxShims}}"
 )
 

@@ -33,6 +33,31 @@ Then add `"OpenSwiftUI"` to the target's dependencies:
 ),
 ```
 
+## Local XCFramework Development
+
+Set `OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH` to a directory containing locally
+built XCFrameworks. Each framework present in that directory overrides its
+release binary; missing frameworks continue to use the release URL.
+
+```bash
+OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH=/path/to/OpenSwiftUI/build swift package resolve
+```
+
+For the bundled Example, set the same environment variable when running its
+setup script:
+
+```bash
+cd Example
+OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH=/path/to/OpenSwiftUI/build ./setup.sh
+```
+
+The `--local-xcframeworks /path/to/OpenSwiftUI/build` option is also available
+as a per-invocation override.
+
+Local XCFrameworks are not required to use the release signing certificate.
+The Example disables Tuist XCFramework signature validation while the local
+override is enabled; release mode retains the signature checks.
+
 ## SwiftUI Library Integration
 
 SwiftUI library authors can support both Apple's SwiftUI and OpenSwiftUI with an
