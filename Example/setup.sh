@@ -54,6 +54,5 @@ fi
 
 cd "$SCRIPT_DIR"
 mise trust "$SCRIPT_DIR/mise.toml"
-mise install
 mise exec -- tuist install
 mise exec -- tuist generate --no-open
