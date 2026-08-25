@@ -77,6 +77,12 @@ Currently supports:
 - iOS 18.0+ (device and simulator)
 - macOS 15.0+
 
+## Macro Distribution
+
+Releases whose framework interfaces declare external macros also include `OpenSwiftUIMacros` as a source target. SwiftPM builds this small compiler plugin for the host because macro implementations cannot currently be distributed inside an XCFramework.
+
+The OpenSwiftUI release workflow generates `Sources/OpenSwiftUIMacros` from the same tag as the XCFrameworks before publishing this package. Do not edit the generated mirror directly. Macro-enabled releases require Xcode 26.6 or a compatible Swift 6.3 toolchain.
+
 ## Binary Configuration History
 
 OpenSwiftUI-spm publishes one binary package configuration per release series.

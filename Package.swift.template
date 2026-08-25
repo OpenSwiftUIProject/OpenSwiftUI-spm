@@ -1,6 +1,7 @@
 // swift-tools-version: 6.3
 
 import Foundation
+import CompilerPluginSupport
 import PackageDescription
 
 // MARK: - Binary Targets
@@ -72,6 +73,20 @@ let openRenderBoxShims = openSwiftUIBinaryTarget(
     checksum: "{{CHECKSUM_OpenRenderBoxShims}}"
 )
 
+// MARK: - Host Macro Target
+
+// Mirrored from the matching OpenSwiftUI release by its release workflow.
+let openSwiftUIMacros = Target.macro(
+    name: "OpenSwiftUIMacros",
+    dependencies: [
+        .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+        .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
+    ],
+    swiftSettings: [
+        .enableUpcomingFeature("InternalImportsByDefault"),
+    ]
+)
+
 // MARK: - Package
 
 let package = Package(
@@ -82,6 +97,7 @@ let package = Package(
      * And the final MachO target must match the OS version to successfully link the framework.
      */
     // platforms: [.iOS(.v18), .macOS(.v15)],
+    platforms: [.iOS(.v13), .macOS(.v10_15)],
     products: [
         .library(
             name: "OpenSwiftUI",
@@ -94,6 +110,13 @@ let package = Package(
                 "OpenRenderBoxShims",
             ]
         ),
+        .library(
+            name: "OpenSwiftUIMacros",
+            targets: ["OpenSwiftUIMacros"]
+        ),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "603.0.0"),
     ],
     targets: [
         openSwiftUI,
@@ -103,6 +126,7 @@ let package = Package(
         openObservation,
         openQuartzCoreShims,
         openRenderBoxShims,
+        openSwiftUIMacros,
 
         .testTarget(
             name: "OpenSwiftUITests",
@@ -114,6 +138,7 @@ let package = Package(
                 "OpenObservation",
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
+                "OpenSwiftUIMacros",
             ],
             path: "Tests"
         ),
