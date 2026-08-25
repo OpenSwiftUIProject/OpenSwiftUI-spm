@@ -108,11 +108,8 @@ let package = Package(
                 "OpenObservation",
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
+                "OpenSwiftUIMacros",
             ]
-        ),
-        .library(
-            name: "OpenSwiftUIMacros",
-            targets: ["OpenSwiftUIMacros"]
         ),
     ],
     dependencies: [

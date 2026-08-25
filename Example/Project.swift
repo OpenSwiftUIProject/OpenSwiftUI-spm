@@ -20,7 +20,6 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                 .package(product: "OpenSwiftUI"),
-                .package(product: "OpenSwiftUIMacros", type: .macro),
             ]
         ),
     ]
