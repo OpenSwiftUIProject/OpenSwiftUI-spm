@@ -14,16 +14,16 @@ jobs:
       matrix:
         include:
           - platform: iOS
-            destination: "platform=iOS Simulator,OS=18.5,name=iPhone 16 Pro"
+            destination: "generic/platform=iOS Simulator"
           - platform: macOS
             destination: "platform=macOS"
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
       - name: Setup Xcode
         uses: OpenSwiftUIProject/setup-xcode@v2
         with:
-          xcode-version: "16.4"
+          xcode-version: "26.6"
       - name: Install mise
         uses: jdx/mise-action@v2
         with:
@@ -35,5 +35,7 @@ jobs:
           cd Example
           set -o pipefail
           mise exec -- tuist xcodebuild build \
+            -workspace Example.xcworkspace \
+            -scheme Example-Workspace \
             -destination "${{ matrix.destination }}" \
             2>&1 | xcbeautify --renderer github-actions --preserve-unbeautified

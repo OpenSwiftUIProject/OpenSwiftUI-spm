@@ -5,7 +5,7 @@ A minimal iOS app demonstrating OpenSwiftUI binary framework integration via Tui
 ## Prerequisites
 
 - [mise](https://mise.jdx.dev/) installed
-- Xcode 16.4+
+- Xcode 26.6+
 
 ## Setup
 
