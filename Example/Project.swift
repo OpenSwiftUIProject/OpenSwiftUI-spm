@@ -2,6 +2,9 @@ import ProjectDescription
 
 let project = Project(
     name: "Example",
+    packages: [
+        .package(path: ".."),
+    ],
     targets: [
         .target(
             name: "Example",
@@ -16,7 +19,8 @@ let project = Project(
             ]),
             sources: ["Sources/**"],
             dependencies: [
-                .external(name: "OpenSwiftUI"),
+                .package(product: "OpenSwiftUI"),
+                .package(product: "OpenSwiftUIMacros", type: .macro),
             ]
         ),
     ]
