@@ -1,6 +1,8 @@
 # Example
 
-A minimal iOS app demonstrating OpenSwiftUI binary framework integration via Tuist.
+A minimal iOS and macOS app demonstrating OpenSwiftUI binary framework
+integration through an Xcode-native Swift package dependency. Tuist only
+generates the Example project and workspace.
 
 ## Prerequisites
 
@@ -27,27 +29,15 @@ mise exec -- tuist generate --no-open
 
 Then open the generated `Example.xcworkspace`.
 
-To use locally built OpenSwiftUI XCFrameworks, set their containing directory
-when running the setup script:
+To use locally built OpenSwiftUI XCFrameworks, quit Xcode completely first.
+Then export the absolute path to their containing directory and launch
+Xcode from the same shell:
 
 ```bash
-OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH=/path/to/OpenSwiftUI/build ./setup.sh
+export OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH=/path/to/OpenSwiftUI/build
+"$(dirname "$(xcode-select -p)")/MacOS/Xcode" "$PWD/Example.xcworkspace"
 ```
-
-The directory can contain only the frameworks under active development. Any
-missing XCFrameworks continue to use the release binaries. The same behavior is
-available to other SwiftPM commands through the
-`OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH` environment variable. As a convenience,
-`./setup.sh --local-xcframeworks /path/to/OpenSwiftUI/build` overrides the
-environment variable for that invocation.
 
 ## Notes
 
 - The generated `.xcodeproj` and `.xcworkspace` are gitignored — always regenerate via `tuist generate`.
-- The example depends on the root `OpenSwiftUI-spm` package via a local path reference. To use the remote package instead, update `Tuist/Package.swift`:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/OpenSwiftUIProject/OpenSwiftUI-spm", from: "0.18.1"),
-]
-```
