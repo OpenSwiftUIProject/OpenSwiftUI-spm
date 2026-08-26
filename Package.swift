@@ -97,7 +97,7 @@ let package = Package(
      * And the final MachO target must match the OS version to successfully link the framework.
      */
     // platforms: [.iOS(.v18), .macOS(.v15)],
-    platforms: [.iOS(.v13), .macOS(.v10_15)],
+    platforms: [.iOS(.v15), .macOS(.v12)],
     products: [
         .library(
             name: "OpenSwiftUI",
@@ -111,6 +111,8 @@ let package = Package(
                 "OpenSwiftUIMacros",
             ]
         ),
+        .library(name: "OpenSwiftUIPlayground", targets: ["OpenSwiftUIPlayground"]),
+        .library(name: "SwiftUIPlayground", targets: ["SwiftUIPlayground"]),
     ],
     dependencies: [
         .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "603.0.0"),
@@ -124,7 +126,20 @@ let package = Package(
         openQuartzCoreShims,
         openRenderBoxShims,
         openSwiftUIMacros,
-
+        .target(
+            name: "OpenSwiftUIPlayground",
+            dependencies: [
+                "OpenSwiftUI",
+                "OpenSwiftUICore",
+                "OpenAttributeGraphShims",
+                "OpenCoreGraphicsShims",
+                "OpenObservation",
+                "OpenQuartzCoreShims",
+                "OpenRenderBoxShims",
+                "OpenSwiftUIMacros",
+            ],
+        ),
+        .target(name: "SwiftUIPlayground"),
         .testTarget(
             name: "OpenSwiftUITests",
             dependencies: [
