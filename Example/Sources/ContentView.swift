@@ -8,17 +8,14 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 24) {
             // MARK: - Text
-
             VStack(spacing: 6) {
-                Text(verbatim: "OpenSwiftUI Example")
+                Text("OpenSwiftUI Example")
                     .font(.title)
-                Text(verbatim: "Color & Shape & Image")
+                Text("Color & Shape & Image")
                     .font(.body)
                     .foregroundStyle(.secondary)
             }
-
             // MARK: - Color
-
             HStack(spacing: 12) {
                 Color.red
                     .frame(width: 60, height: 60)
@@ -27,9 +24,7 @@ struct ContentView: View {
                 Color.blue
                     .frame(width: 60, height: 60)
             }
-
             // MARK: - Shape
-
             HStack(spacing: 12) {
                 Circle()
                     .fill(.orange)
@@ -41,9 +36,7 @@ struct ContentView: View {
                     .fill(.cyan)
                     .frame(width: 60, height: 60)
             }
-
             // MARK: - Image
-
             Image(systemName: "swift")
                 .resizable()
                 .scaledToFit()
