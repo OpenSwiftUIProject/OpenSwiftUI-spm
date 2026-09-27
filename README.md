@@ -65,9 +65,9 @@ Currently supports:
 
 ## Macro Distribution
 
-Releases whose framework interfaces declare external macros also include `OpenSwiftUIMacros` as a source target. SwiftPM builds this small compiler plugin for the host because macro implementations cannot currently be distributed inside an XCFramework.
+The package includes `OpenSwiftUIMacros` and `OpenObservationMacros` as source targets. SwiftPM builds these compiler plugins for the host. The XCFrameworks provide the macro declarations and runtime code; their interfaces alone do not provide the macro implementations.
 
-The OpenSwiftUI release workflow generates `Sources/OpenSwiftUIMacros` from the same tag as the XCFrameworks before publishing this package. Do not edit the generated mirror directly. Macro-enabled releases require Xcode 26.6 or a compatible Swift 6.3 toolchain.
+The OpenSwiftUI release workflow generates `Sources/OpenSwiftUIMacros` from the release source and `Sources/OpenObservationMacros` from the OpenObservation revision pinned in that release's `Package.resolved`. Do not edit these generated mirrors directly. Macro-enabled releases require Xcode 26.6 or a compatible Swift 6.3 toolchain.
 
 ## Binary Configuration History
 

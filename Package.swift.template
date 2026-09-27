@@ -73,7 +73,7 @@ let openRenderBoxShims = openSwiftUIBinaryTarget(
     checksum: "{{CHECKSUM_OpenRenderBoxShims}}"
 )
 
-// MARK: - Host Macro Target
+// MARK: - Host Macro Targets
 
 // Mirrored from the matching OpenSwiftUI release by its release workflow.
 let openSwiftUIMacros = Target.macro(
@@ -84,6 +84,20 @@ let openSwiftUIMacros = Target.macro(
     ],
     swiftSettings: [
         .enableUpcomingFeature("InternalImportsByDefault"),
+    ]
+)
+
+let openObservationMacros = Target.macro(
+    name: "OpenObservationMacros",
+    dependencies: [
+        .product(name: "SwiftDiagnostics", package: "swift-syntax"),
+        .product(name: "SwiftSyntaxBuilder", package: "swift-syntax"),
+        .product(name: "SwiftSyntax", package: "swift-syntax"),
+        .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+        .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
+    ],
+    swiftSettings: [
+        .swiftLanguageMode(.v5),
     ]
 )
 
@@ -109,6 +123,7 @@ let package = Package(
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
                 "OpenSwiftUIMacros",
+                "OpenObservationMacros",
             ]
         ),
         .library(name: "OpenSwiftUIPlayground", targets: ["OpenSwiftUIPlayground"]),
@@ -126,6 +141,7 @@ let package = Package(
         openQuartzCoreShims,
         openRenderBoxShims,
         openSwiftUIMacros,
+        openObservationMacros,
         .target(
             name: "OpenSwiftUIPlayground",
             dependencies: [
@@ -137,6 +153,7 @@ let package = Package(
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
                 "OpenSwiftUIMacros",
+                "OpenObservationMacros",
             ],
         ),
         .target(name: "SwiftUIPlayground"),
@@ -151,6 +168,7 @@ let package = Package(
                 "OpenQuartzCoreShims",
                 "OpenRenderBoxShims",
                 "OpenSwiftUIMacros",
+                "OpenObservationMacros",
             ],
             path: "Tests"
         ),
