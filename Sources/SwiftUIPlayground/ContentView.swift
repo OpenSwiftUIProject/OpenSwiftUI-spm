@@ -1,7 +1,6 @@
 //
 //  ContentView.swift
 //  SwiftUIPlayground
-//
 
 import SwiftUI
 

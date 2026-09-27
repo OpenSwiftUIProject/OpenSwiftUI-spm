@@ -1,7 +1,6 @@
 //
 //  ContentView.swift
 //  OpenSwiftUIPlayground
-//
 
 import OpenSwiftUI
 
