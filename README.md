@@ -69,6 +69,9 @@ The package includes `OpenSwiftUIMacros` and `OpenObservationMacros` as source t
 
 The OpenSwiftUI release workflow generates `Sources/OpenSwiftUIMacros` from the release source and `Sources/OpenObservationMacros` from the OpenObservation revision pinned in that release's `Package.resolved`. Do not edit these generated mirrors directly. Macro-enabled releases require Xcode 26.6 or a compatible Swift 6.3 toolchain.
 
+See [SwiftPM Macro Packaging](Docs/MacroPackageStrategy.md) for the current mirror
+decision, dependency alternatives, and package-layout constraints.
+
 ## Binary Configuration History
 
 OpenSwiftUI-spm publishes one binary package configuration per release series.
