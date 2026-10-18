@@ -1,6 +1,6 @@
 # Example
 
-A minimal iOS and macOS app demonstrating OpenSwiftUI binary framework
+A minimal iOS, macOS, and visionOS app demonstrating OpenSwiftUI binary framework
 integration through an Xcode-native Swift package dependency. Tuist only
 generates the Example project and workspace.
 
@@ -37,6 +37,13 @@ Xcode from the same shell:
 export OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH=/path/to/OpenSwiftUI/build
 "$(dirname "$(xcode-select -p)")/MacOS/Xcode" "$PWD/Example.xcworkspace"
 ```
+
+## visionOS
+
+The visionOS target requires visionOS 2.0 or later and XCFrameworks with visionOS
+device and simulator slices. The 0.23.1 binaries do not include these slices.
+Until a release includes them, use `OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH` with
+locally built XCFrameworks.
 
 ## Notes
 
