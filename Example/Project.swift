@@ -8,10 +8,10 @@ let project = Project(
     targets: [
         .target(
             name: "Example",
-            destinations: [.iPhone, .iPad, .mac],
+            destinations: [.iPhone, .iPad, .mac, .appleVision],
             product: .app,
             bundleId: "org.OpenSwiftUIProject.OpenSwiftUI-spm.Example",
-            deploymentTargets: .multiplatform(iOS: "18.0", macOS: "15.0"),
+            deploymentTargets: .multiplatform(iOS: "18.0", macOS: "15.0", visionOS: "2.0"),
             infoPlist: .extendingDefault(with: [
                 "UILaunchScreen": [
                     "UIColorName": "",

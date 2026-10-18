@@ -60,8 +60,9 @@ Examples of SwiftUI packages using this integration pattern:
 ## Platform Support
 
 Currently supports:
-- iOS 18.0+ (device and simulator)
+- iOS 18.0+
 - macOS 15.0+
+- visionOS 2.0+
 
 ## Macro Distribution
 

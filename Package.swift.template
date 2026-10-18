@@ -110,8 +110,8 @@ let package = Package(
      * as we can't conditional change platforms for trait. So keep leave this for now.
      * And the final MachO target must match the OS version to successfully link the framework.
      */
-    // platforms: [.iOS(.v18), .macOS(.v15)],
-    platforms: [.iOS(.v15), .macOS(.v12)],
+    // platforms: [.iOS(.v18), .macOS(.v15), .visionOS(.v2)],
+    platforms: [.iOS(.v15), .macOS(.v12), .visionOS(.v1)],
     products: [
         .library(
             name: "OpenSwiftUI",
