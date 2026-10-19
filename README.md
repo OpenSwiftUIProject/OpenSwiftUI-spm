@@ -79,8 +79,9 @@ OpenSwiftUI-spm publishes one binary package configuration per release series.
 
 | Versions | Renderer backend | AttributeGraph backend | Platform support |
 |----------|------------------|------------------------|------------------|
-| 0.19.0+ | OSUI Renderer | IAG (Compute) | iOS 18+ (device and simulator) and macOS 15+ |
-| 0.18.0-0.18.3 | OSUI Renderer | AG | iOS Simulator 18+ and macOS 15+ |
+| 0.24.0+ | OSUI Renderer | IAG (Compute) | iOS 18.0+, macOS 15+, visionOS 2.0+ |
+| 0.19.0-0.23.1 | OSUI Renderer | IAG (Compute) | iOS 18.0+, macOS 15.0+ |
+| 0.18.0-0.18.3 | OSUI Renderer | AG | iOS Simulator 18.0+ and macOS 15.0+ |
 | 0.17.0-0.17.3 | SUI Renderer | AG | iOS Simulator [18.5, 26.0) and macOS [15.5, 26.0) |
 
 ## Included Frameworks
