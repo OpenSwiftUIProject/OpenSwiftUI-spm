@@ -6,8 +6,8 @@ import PackageDescription
 
 // MARK: - Binary Targets
 
-/// XCFrameworks compiled from OpenSwiftUI 0.24.0.
-let openSwiftUIVersion = "0.24.0"
+/// XCFrameworks compiled from OpenSwiftUI 0.24.1.
+let openSwiftUIVersion = "0.24.1"
 let openSwiftUIReleaseBaseURL = "https://github.com/OpenSwiftUIProject/OpenSwiftUI/releases/download/\(openSwiftUIVersion)"
 let packageDirectory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
 let localXCFrameworksDirectory = Context.environment["OPENSWIFTUI_LOCAL_XCFRAMEWORKS_PATH"].flatMap { path in
@@ -46,31 +46,31 @@ func openSwiftUIBinaryTarget(name: String, checksum: String) -> Target {
 
 let openSwiftUI = openSwiftUIBinaryTarget(
     name: "OpenSwiftUI",
-    checksum: "a05a861ff63d3c2381ede63109f1c4b03f6c5e961875523e807c234e07b26ec4"
+    checksum: "5a9cda4d1cc6eacc96671f5e3a88831baf1194289304dc2c90a2ad508766f515"
 )
 let openSwiftUICore = openSwiftUIBinaryTarget(
     name: "OpenSwiftUICore",
-    checksum: "1e552fb61fcd6e9c6ebc798757c722046a2e7737eacd9288f9d192f1e83120ff"
+    checksum: "8d3979cc82d1d4949b4c8463103f3c346772d31d0b704ae105bb4e56e4e10b04"
 )
 let openAttributeGraphShims = openSwiftUIBinaryTarget(
     name: "OpenAttributeGraphShims",
-    checksum: "a89465d95d8438c683b32263d9e03c5fb9770cc9df9e3ae86b705198f32f5117"
+    checksum: "4ebfca4b38930cb44ab6828dcb6c6f603434c35a63a806fcaa7d6b19e0db67d1"
 )
 let openCoreGraphicsShims = openSwiftUIBinaryTarget(
     name: "OpenCoreGraphicsShims",
-    checksum: "c64da267570e913e86afdf5aa48a902b377a2e278d83c4e83a6b4b3dc286b19b"
+    checksum: "4d91eb190fe908804e781f4c9c7212236d986eafd0cde0846a2c368ce1c091ba"
 )
 let openObservation = openSwiftUIBinaryTarget(
     name: "OpenObservation",
-    checksum: "60cf68517e2c869038109f9ffbecbbd0dd4369d26473dcbd7935aa7a9bd57610"
+    checksum: "1a6c50d9a2db694e1e30242730a74e8281a916a9de3dc48844c67de2727dd67d"
 )
 let openQuartzCoreShims = openSwiftUIBinaryTarget(
     name: "OpenQuartzCoreShims",
-    checksum: "a93b04f01784b29fa02375578b9f903fd26cad193c2db65eb38c6c3cd83c591f"
+    checksum: "13797f6447d75e58cae54cb37ae48944c3d4ae909c2fb6c179cf4932d9a54648"
 )
 let openRenderBoxShims = openSwiftUIBinaryTarget(
     name: "OpenRenderBoxShims",
-    checksum: "98e24893fbe560351d73946a070d7e241085f0c5724cffeec7e61e3f1109ac35"
+    checksum: "8f3e1020e6b5f3d8a679b28b1646cdca671371051e9e431511ad90caa19ea348"
 )
 
 // MARK: - Host Macro Targets
